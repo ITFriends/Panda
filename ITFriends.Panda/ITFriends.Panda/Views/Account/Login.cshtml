@@ -1,0 +1,23 @@
+﻿@model ITFriends.Panda.Models.LoginViewModel
+
+<section class="m-wallpaper">
+    <br />
+    <br />
+    <br />
+    <br />
+    <div class="form-container">
+        <form asp-action="Login" class="form-signin" asp-controller="Account" method="post" @*asp-route-returnUrl="@Model.ReturnUrl" *@>
+            <div class="form-signin__title pb-3">Sign In</div>
+            <p>
+                <input class="form-signin__field p-3" type="text" name="Email" placeholder="Email" />
+            </p>
+            <p>
+                <input class="form-signin__field p-3" type="password" name="Password" placeholder="Password" />
+            </p>
+            <br />
+            <p>
+                <input class="form-signin__button" type="submit" value="SIGN IN" />
+            </p>
+        </form>
+    </div>
+</section>

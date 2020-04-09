@@ -1,0 +1,111 @@
+﻿@font-face {
+    font-family: 'RobotoBold';
+    src: url(../fonts/Roboto-Bold.ttf);
+}
+
+@font-face {
+    font-family: 'RobotoLight';
+    src: url(../fonts/Roboto-Light.ttf);
+}
+
+/*======== Layout content ===========*/
+.top-menu {
+    padding: 30px;
+    transition: all .7s;
+}
+
+.top-menu__item {
+    color: white;
+    font-family: RobotoBold;
+    text-align:center;
+}
+
+.top-menu__item:hover {
+    color: white;
+    border-bottom: solid 2px;
+}
+
+.top-menu__item__signup {
+    color: greenyellow;
+    font-family: RobotoBold;
+    border-radius: 25px;
+    border-style: solid;
+    text-align: center;
+}
+
+.top-menu__item__signup:hover {
+    color: white;
+}
+
+.line1, .line2, .line3 {
+    width: 23px;
+    height: 3px;
+    margin: 5px;
+    transition: all .4s;
+}
+
+.change .line1 {
+    transform: rotate(-45deg) translate(-5px, 6px);
+}
+
+.change .line2 {
+    opacity: 0;
+}
+
+.change .line3 {
+    transform: rotate(45deg) translate(-5px, -6px);
+}
+
+/*===== end of Layout content =====*/
+
+/*===== Views content =====*/
+.m-wallpaper {
+    height: 100vh;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-image:url(../images/panda_wallpr.jpg);
+    color: white;
+}
+
+.form-container {
+    display: flex;
+    height:80%;
+}
+
+.form-signin {
+    max-width: 318px;
+    padding: 15px;
+    margin:auto;
+}
+
+.form-signin__title {
+    text-align: center;
+    font-size: 24px;
+    color: #fff;
+}
+
+.form-signin__field {
+    font-family: RobotoLight;
+    font-size: 18px;
+    color: #fff;
+    background-color: rgba(255, 255, 255, 0.2);
+    border: none;
+    width: 318px;
+    height: 43px;
+    border-radius: initial;
+}
+
+.form-signin__button {
+    background-color: rgba(255, 255, 255, 0.0);
+    border-color: white;
+    border-width: 2px;
+    border-bottom-style: solid;
+    font-family: RobotoBold;
+    font-size: 18px;
+    color: #fff;
+    width: 319px;
+    height: 43px;
+}
+
+/*===== end of Views content =====*/

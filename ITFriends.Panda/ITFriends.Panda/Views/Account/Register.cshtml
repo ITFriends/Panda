@@ -1,0 +1,29 @@
+﻿@model ITFriends.Panda.Models.RegisterViewModel
+ 
+<section class="m-wallpaper">
+    <br />
+    <br />
+    <br />
+    <div class="form-container">
+        <form class="form-signin" action="/Account/Register" method="post">
+            <div class="form-signin__title pb-3">Sign Up</div>
+            <p>
+                <input class="form-signin__field p-3" type="text" name="UserName" placeholder="Username" />
+            </p>
+            <p>
+                <input class="form-signin__field p-3" type="email" name="Email" placeholder="Email" />
+            </p>
+            <p>
+                <input class="form-signin__field p-3" type="password" name="Password" id="Password" placeholder="Password" />
+            </p>
+            <p>
+                <input class="form-signin__field p-3" type="password" name="ConfirmPassword" placeholder="Confirm password" />
+            </p>
+
+            <br />
+            <p>
+                <input class="form-signin__button" type="submit" value="SIGN UP" />
+            </p>
+        </form>
+    </div>
+</section>
