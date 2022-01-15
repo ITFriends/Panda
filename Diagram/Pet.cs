@@ -8,9 +8,11 @@ namespace Panda.Models
 
         public string Name { get; set; }
 
-        public string OwnerFullName { get; set; }
+        public double Age { get; set; }
 
-        public string OwnerPhoneNumber { get; set; }
+        public Owner Owner { get; set; }
+
+        public string OwnerId { get; set; }
 
         public Family Family { get; set; }
 
@@ -19,5 +21,7 @@ namespace Panda.Models
         public House House { get; set; }
 
         public string HouseId { get; set; }
+
+        public string Photo { get; set; }
     }
 }
