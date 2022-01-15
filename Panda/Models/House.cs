@@ -19,5 +19,7 @@ namespace Panda.Models
         public double SizeHeight { get; set; }
 
         public HouseStatus Status { get; set; }
+
+        public string Picture { get; set; }
     }
 }

@@ -8,10 +8,6 @@ namespace Panda.Models
         
         public DateTime RegistrationTime { get; set; }
 
-        public string OwnerFullName { get; set; }
-
-        public string OwnerPhoneNumber { get; set; }
-
         public string PetName { get; set; }
 
         public Family Family { get; set; }
@@ -21,6 +17,10 @@ namespace Panda.Models
         public int DurationDays { get; set; }
 
         public OrderStatus Status { get; set; }
+
+        public Owner Owner { get; set; }
+
+        public string OwnerId { get; set; }
 
         public House House { get; set; }
 

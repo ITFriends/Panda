@@ -1,4 +1,5 @@
-﻿using Panda.Models.Enums;
+﻿using System;
+using Panda.Models.Enums;
 
 namespace Panda.Models
 {
@@ -7,10 +8,6 @@ namespace Panda.Models
         public string Id { get; set; }
         
         public DateTime RegistrationTime { get; set; }
-
-        public string OwnerFullName { get; set; }
-
-        public string OwnerPhoneNumber { get; set; }
 
         public string PetName { get; set; }
 
@@ -21,6 +18,10 @@ namespace Panda.Models
         public int DurationDays { get; set; }
 
         public OrderStatus Status { get; set; }
+
+        public Owner Owner { get; set; }
+
+        public string OwnerId { get; set; }
 
         public House House { get; set; }
 
