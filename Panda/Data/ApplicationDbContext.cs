@@ -13,12 +13,12 @@ namespace Panda.Data
         {
         }
 
-        DbSet<Pet> Pets { get; set; }
+        public DbSet<Pet> Pets { get; set; }
 
-        DbSet<Order> Orders { get; set; }
+        public DbSet<Order> Orders { get; set; }
 
-        DbSet<House> Houses { get; set; }
+        public DbSet<House> Houses { get; set; }
 
-        DbSet<Owner> Owners { get; set; }
+        public DbSet<Owner> Owners { get; set; }
     }
 }
