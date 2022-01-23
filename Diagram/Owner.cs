@@ -1,4 +1,4 @@
-﻿namespace Panda.Models
+﻿namespace Diagram
 {
     public class Owner
     {
