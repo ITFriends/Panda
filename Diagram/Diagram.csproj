@@ -42,23 +42,21 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CustomDispose.cs" />
-    <Compile Include="Dad.cs" />
+    <Compile Include="Inheritance\Dad.cs" />
     <Compile Include="Enums\Family.cs" />
     <Compile Include="Enums\HouseStatus.cs" />
     <Compile Include="Enums\OrderStatus.cs" />
     <Compile Include="House.cs" />
-    <Compile Include="Human.cs" />
+    <Compile Include="Inheritance\Human.cs" />
     <Compile Include="Order.cs" />
     <Compile Include="Owner.cs" />
-    <Compile Include="Parent.cs" />
+    <Compile Include="Inheritance\Parent.cs" />
     <Compile Include="Pet.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Diagram.cd" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="NewFolder1\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

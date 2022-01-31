@@ -4,6 +4,8 @@ using Microsoft.AspNetCore.Identity.UI;
 using Microsoft.EntityFrameworkCore;
 using Panda.Data;
 using Panda.Models;
+using Panda.Interfaces;
+using Panda.Repositories;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -21,6 +23,8 @@ builder.Services.AddIdentityServer()
 
 builder.Services.AddAuthentication()
     .AddIdentityServerJwt();
+
+builder.Services.AddTransient<IHouseRepository, HouseRepository>();
 
 builder.Services.AddControllersWithViews();
 builder.Services.AddRazorPages();
