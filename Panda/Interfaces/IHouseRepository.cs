@@ -8,6 +8,8 @@ namespace Panda.Interfaces
 
         Task<List<House>> GetAllAsync();
 
+        Task<House> GetByIdAsync(string id);
+
         Task UpdateAsync(House house);
 
         Task DeleteAsync(House house);

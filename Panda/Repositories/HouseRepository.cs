@@ -26,6 +26,11 @@ namespace Panda.Repositories
                         .ToListAsync();
         }
 
+        public async Task<House> GetByIdAsync(string id)
+        {
+            return await _context.Houses.FindAsync(id);
+        }
+
         public async Task UpdateAsync(House house)
         {
             _context.Houses.Update(house);
@@ -37,5 +42,7 @@ namespace Panda.Repositories
             _context.Remove(house);
             await _context.SaveChangesAsync();
         }
+
+
     }
 }
