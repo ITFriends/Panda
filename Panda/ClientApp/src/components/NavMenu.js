@@ -24,7 +24,8 @@ export class NavMenu extends Component {
 
   render () {
     return (
-      <header>
+        <header>
+        
         <Navbar className="navbar-expand-sm navbar-toggleable-sm ng-white border-bottom box-shadow mb-3" light>
           <Container>
             <NavbarBrand tag={Link} to="/">Panda</NavbarBrand>
@@ -40,12 +41,16 @@ export class NavMenu extends Component {
                 <NavItem>
                   <NavLink tag={Link} className="text-dark" to="/fetch-data">Fetch data</NavLink>
                 </NavItem>
+                <NavItem>
+                    <NavLink tag={Link} className="text-dark" to="/create-new-house">Create New House</NavLink>
+                </NavItem>
                 <LoginMenu>
                 </LoginMenu>
               </ul>
             </Collapse>
           </Container>
-        </Navbar>
+            </Navbar>
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossOrigin="anonymous"></script>
       </header>
     );
   }
