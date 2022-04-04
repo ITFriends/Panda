@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Collapse, Container, Navbar, NavbarBrand, NavbarToggler, NavItem, NavLink } from 'reactstrap';
 import { Link } from 'react-router-dom';
 import { LoginMenu } from './api-authorization/LoginMenu';
+import NavDropdown  from 'react-bootstrap/NavDropdown'
 import './NavMenu.css';
 
 export class NavMenu extends Component {
@@ -35,17 +36,11 @@ export class NavMenu extends Component {
                 <NavItem>
                   <NavLink tag={Link} className="text-dark" to="/">Home</NavLink>
                 </NavItem>
-                <NavItem>
-                  <NavLink tag={Link} className="text-dark" to="/counter">Counter</NavLink>
-                </NavItem>
-                <NavItem>
-                  <NavLink tag={Link} className="text-dark" to="/fetch-data">Fetch data</NavLink>
-                </NavItem>
-                <NavItem>
-                    <NavLink tag={Link} className="text-dark" to="/create-new-house">Create New House</NavLink>
-                </NavItem>
                 <LoginMenu>
                 </LoginMenu>
+                <NavDropdown title="Admin">
+                     <NavLink tag={Link} className="text-dark" to="/create-new-house">Create New House</NavLink>
+                </NavDropdown>
               </ul>
             </Collapse>
           </Container>
