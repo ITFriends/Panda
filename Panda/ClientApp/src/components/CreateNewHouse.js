@@ -5,18 +5,33 @@ import Button from 'react-bootstrap/Button';
 export class CreateNewHouse extends Component {
     static displayName = CreateNewHouse.name;
 
-    //constructor(props) {
-    //  super(props);
+    constructor(props) {
+      super(props);
+        this.state = {
+            number: '1',
+            price: '5'
+        }
 
-    //}
+        this.onInputChange = this.onInputChange.bind(this);
+        this.handleSubmit = this.handleSubmit.bind(this);
+    }
 
+    onInputChange(event) {
+        this.setState({
+            [event.target.name]: event.target.value
+        });
+    }
+
+    handleSubmit(event) {
+        this.sendHouseData();
+    }
 
     render() {
         return (
-            <Form>
+            <Form onSubmit = { this.handleSubmit }>
                 <Form.Group className="mb-3">
                     <Form.Label>Number</Form.Label>
-                    <Form.Control type="number" placeholder="Number" />
+                    <Form.Control type="number" placeholder="Number" value={this.state.number} name="number" onChange={this.onInputChange} />
                     <Form.Text className="text-muted">
                         This is the number of cabin
                     </Form.Text>
@@ -24,7 +39,7 @@ export class CreateNewHouse extends Component {
 
                 <Form.Group className="mb-3">
                     <Form.Label>Price (in UAH)</Form.Label>
-                    <Form.Control type="number" placeholder="Enter price" />
+                    <Form.Control type="number" placeholder="Enter price" value={this.state.price} name="price" onChange={this.onInputChange}  />
                     <Form.Text className="text-muted">
                         This is the price for a daily rental of cabin
                     </Form.Text>
@@ -44,7 +59,7 @@ export class CreateNewHouse extends Component {
                 <Form.Label className="mt-5">Size (in meters)</Form.Label>
                 <Form.Group className="mb-1">
                     <Form.Label>Length</Form.Label>
-                    <Form.Control type="number" placeholder="Enter length" />
+                    <Form.Control type="number" placeholder="Enter length" onChange={this.onInputChange} />
                 </Form.Group>
                 <Form.Group className="mb-1">
                     <Form.Label>Width</Form.Label>
@@ -73,5 +88,20 @@ export class CreateNewHouse extends Component {
                 </Button>
             </Form>
         );
+    }
+
+    async sendHouseData() {
+        debugger;
+        const formData = new FormData();
+        formData.append("number", this.state.number);
+        formData.append("price", this.state.price);
+
+        const response = await fetch('api/admin/house/create',
+            {
+                method: 'POST',
+                body: formData
+            });
+
+        const data = await response.json();
     }
 }

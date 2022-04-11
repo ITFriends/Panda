@@ -24,26 +24,18 @@ namespace Panda.Controllers
         }
 
         [HttpPost("house/create")]
-        public async Task CreateHouse()
+        public async Task<string> CreateHouse([FromForm] IFormCollection formData)
         {
-            var rand = new Random();
-            for (var i = 0; i < 10; i++)
-            {
-                var house = new House
-                {
-                    Id = Guid.NewGuid().ToString(),
-                    Number = rand.Next(20),
-                    Price = rand.Next(15),
-                    Family = Family.Dog,
-                    SizeHeight = 2,
-                    SizeLength = 2,
-                    SizeWidth = 1,
-                    Status = HouseStatus.Free,
-                    Picture = "House.jpg"
-                };
 
-                await _houseRepository.CreateAsync(house);
-            }
+            var house = new House
+            {
+                Number = int.Parse(formData["number"]),
+                Price = double.Parse(formData["price"])
+            };
+
+            await _houseRepository.CreateAsync(house);
+
+            return "Ok";
         }
     }
 }
