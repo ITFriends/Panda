@@ -9,11 +9,17 @@ export class CreateNewHouse extends Component {
       super(props);
         this.state = {
             number: '1',
-            price: '5'
+            price: '5',
+            selectedFile: null,
+            selectedFileName: '',
+            uploadResult: {
+                status: 'not uploaded'
+            }
         }
 
         this.onInputChange = this.onInputChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
+        this.uploadFile = this.uploadFile.bind(this);
     }
 
     onInputChange(event) {
@@ -24,6 +30,31 @@ export class CreateNewHouse extends Component {
 
     handleSubmit(event) {
         this.sendHouseData();
+    }
+
+    onUploadChange = event => {
+        debugger;
+            this.setState({
+                selectedFile: event.target.files[0],
+                selectedFileName: event.target.files[0].name
+            })
+        };
+
+    async uploadFile() {
+        const formData = new FormData();
+        formData.append('file', this.state.selectedFile);
+
+        const response = await fetch("api/admin/house/upload",
+            {
+                method: 'POST',
+                body: formData
+            });
+
+        const data = await response.json();
+
+        this.setState({
+            uploadResult: data
+        })
     }
 
     render() {
@@ -78,14 +109,20 @@ export class CreateNewHouse extends Component {
                     <option value="1">Occupied</option>
                 </Form.Select>
 
-                <Form.Group controlId="formFile" className="mt-5">
-                    <Form.Label>Load picture of a new cabin</Form.Label>
-                    <Form.Control type="file" />
-                </Form.Group>
+                {/*<Form.Group controlId="formFile" className="mt-5">*/}
+                {/*    <Form.Label>Load picture of a new cabin</Form.Label>*/}
+                {/*    <Form.Control type="file" />*/}
+                {/*</Form.Group>*/}
 
-                <Button variant="primary" type="submit" className="mt-5">
-                    Submit
-                </Button>
+
+                <div className="mt-5 d-flex">
+                    <div className="custom-file w-50 mr-2">
+                        <Form.Control type="file" name="file" onChange={this.onUploadChange} className="custom-file-input" />
+                        <label className="custom-file-label" htmlFor="customFile"> {this.state.selectedFileName}</label>
+                    </div>
+                    <button type="button" className="btn btn-success" onClick={this.uploadFile}>Upload</button>
+                </div>
+                <p>Status: {this.state.uploadResult.status}</p>
             </Form>
         );
     }
