@@ -77,7 +77,7 @@ export class CreateNewHouse extends Component {
                 </Form.Group>
 
                 <Form.Label>Family</Form.Label>
-                <Form.Select aria-label="Select Family">
+                <Form.Select aria-label="Select Family" name="family" onChange={this.onInputChange} >
                     <option>Not selected</option>
                     <option value="0">Dog</option>
                     <option value="1">Cat</option>
@@ -90,20 +90,20 @@ export class CreateNewHouse extends Component {
                 <Form.Label className="mt-5">Size (in meters)</Form.Label>
                 <Form.Group className="mb-1">
                     <Form.Label>Length</Form.Label>
-                    <Form.Control type="number" placeholder="Enter length" onChange={this.onInputChange} />
+                    <Form.Control type="number" placeholder="Enter length" name="length" onChange={this.onInputChange} />
                 </Form.Group>
                 <Form.Group className="mb-1">
                     <Form.Label>Width</Form.Label>
-                    <Form.Control type="number" placeholder="Enter width" />
+                    <Form.Control type="number" placeholder="Enter width" name="width" onChange={this.onInputChange}  />
                 </Form.Group>
                 <Form.Group className="mb-1">
                     <Form.Label>Height</Form.Label>
-                    <Form.Control type="number" placeholder="Enter height" />
+                    <Form.Control type="number" placeholder="Enter height" name="height" onChange={this.onInputChange}  />
                 </Form.Group>
 
 
                 <Form.Label className="mt-5">Select status</Form.Label>
-                <Form.Select aria-label="Select status">
+                <Form.Select aria-label="Select status" name="status" onChange={this.onInputChange} >
                     <option>Not selected</option>
                     <option value="0">Free</option>
                     <option value="1">Occupied</option>
@@ -123,6 +123,9 @@ export class CreateNewHouse extends Component {
                     <button type="button" className="btn btn-success" onClick={this.uploadFile}>Upload</button>
                 </div>
                 <p>Status: {this.state.uploadResult.status}</p>
+                <Button variant="primary" type="submit" className="mt-5">
+                    Submit
+                </Button>
             </Form>
         );
     }
@@ -132,6 +135,12 @@ export class CreateNewHouse extends Component {
         const formData = new FormData();
         formData.append("number", this.state.number);
         formData.append("price", this.state.price);
+        formData.append("length", this.state.length);
+        formData.append("width", this.state.width);
+        formData.append("height", this.state.height);
+        formData.append("family", this.state.family);
+        formData.append("status", this.state.status);
+        formData.append("filename", this.state.uploadResult.fileName);
 
         const response = await fetch('api/admin/house/create',
             {
