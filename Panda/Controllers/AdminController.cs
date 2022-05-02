@@ -31,7 +31,13 @@ namespace Panda.Controllers
             var house = new House
             {
                 Number = int.Parse(formData["number"]),
-                Price = double.Parse(formData["price"])
+                Price = double.Parse(formData["price"]),
+                SizeLength = double.Parse(formData["length"]),
+                SizeWidth = double.Parse(formData["width"]),
+                SizeHeight = double.Parse(formData["height"]),
+                Family = (Family)int.Parse(formData["family"]),
+                Status = (HouseStatus)int.Parse(formData["status"]),
+                Picture = formData["filename"],
             };
 
             await _houseRepository.CreateAsync(house);
