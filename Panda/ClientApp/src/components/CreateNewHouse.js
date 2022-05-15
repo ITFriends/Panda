@@ -131,7 +131,6 @@ export class CreateNewHouse extends Component {
     }
 
     async sendHouseData() {
-        debugger;
         const formData = new FormData();
         formData.append("number", this.state.number);
         formData.append("price", this.state.price);
