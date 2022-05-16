@@ -10,6 +10,7 @@ import { ApplicationPaths } from './components/api-authorization/ApiAuthorizatio
 
 import './custom.css'
 import { CreateNewHouse } from './components/CreateNewHouse';
+import { ListHouses } from './components/ListHouses';
 
 export default class App extends Component {
   static displayName = App.name;
@@ -18,7 +19,7 @@ export default class App extends Component {
     return (
       <Layout>
         <Route exact path='/' component={Home} />
-        <Route path='/counter' component={Counter} />
+        <Route path='/cabins' component={ListHouses} />
         <Route path='/create-new-house' component={CreateNewHouse} />
         <AuthorizeRoute path='/fetch-data' component={FetchData} />
         <Route path={ApplicationPaths.ApiAuthorizationPrefix} component={ApiAuthorizationRoutes} />
